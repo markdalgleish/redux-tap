@@ -13,7 +13,7 @@ export default (selector, callback) => store => next => action => {
     return returnValue;
   }
 
-  callback(selected, action, store.getState());
+  callback(selected, action, store);
 
   return returnValue;
 };

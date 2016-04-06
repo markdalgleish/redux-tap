@@ -18,10 +18,10 @@ import rootReducer from './reducers';
 // For example, select any action with metadata:
 const selectMeta = action => action.meta;
 
-// Once selected, access the selected value, action and current state:
-const middleware = tap(selectMeta, (meta, action, state) => {
+// Once selected, access the selected value, action and store:
+const middleware = tap(selectMeta, (meta, action, store) => {
   // In this case, we'll simply log to the console:
-  console.log(meta, action, state);
+  console.log(meta, action, store);
 });
 
 // Note: this API requires redux@>=3.1.0

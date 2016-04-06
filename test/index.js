@@ -59,9 +59,11 @@ describe('Given: A Store with redux-tap middleware', () => {
       });
     });
 
-    it('Then: It should invoke the callback with the current state as the third argument', () => {
-      const [ _, __, state ] = callbackSpy.getCall(0).args;
-      assert.deepEqual(state, { name: 'jane smith', loggedIn: true });
+    it('Then: It should invoke the callback with the store as the third argument', () => {
+      const [ _, __, callbackStore ] = callbackSpy.getCall(0).args;
+      const { getState, dispatch } = callbackStore;
+      assert.equal(typeof getState, 'function');
+      assert.equal(typeof dispatch, 'function');
     });
   });
 
